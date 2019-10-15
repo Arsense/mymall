@@ -38,12 +38,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<!--lombok-->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -68,6 +63,11 @@
 			<groupId>org.mybatis.generator</groupId>
 			<artifactId>mybatis-generator-core</artifactId>
 			<version>1.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.macro.mymall</groupId>
+			<artifactId>mymall-dao</artifactId>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
 
 
