@@ -5,9 +5,10 @@ server:
   port: 8081
 #数据库连接配置
 spring:
-  datasource: jdbc:mysql://localhost:3306/mymall?useUnicode=true&characterEncoding=utf-8
-    username: root
-    password: clay
+  datasource:
+      url: jdbc:mysql://localhost:3306/mymall?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: clay
 
 #mybatis配置
 mybatis:

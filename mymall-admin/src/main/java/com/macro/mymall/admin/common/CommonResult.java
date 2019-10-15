@@ -33,14 +33,43 @@ public class CommonResult<T> {
      * @param data
      */
     public static <T> CommonResult<T> success(T data) {
-        return new CommonResult<>(1,"成功", data);
+        return new CommonResult<>(ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getMessage(), data);
+    }
+
+
+    /**
+     * 成功返回结果
+     *
+     * @param data 获取的数据
+     * @param  message 提示信息
+     */
+    public static <T> CommonResult<T> success(T data, String message) {
+        return new CommonResult<T>(ResultCode.SUCCESS.getCode(), message, data);
+    }
+
+
+    /**
+     * 失败返回结果
+     * @param message 提示信息
+     */
+    public static <T> CommonResult<T> fail(String message) {
+        return new CommonResult<T>(ResultCode.FAILED.getCode(), message, null);
     }
 
     /**
-     * 调用失败
-     * @param data
+     * 失败返回结果
      */
-    public static <T> CommonResult<T> fail(T data) {
-        return new CommonResult<>(0,"失败", data);
+    public static <T> CommonResult<T> fail() {
+        return fail(ResultCode.FAILED);
+    }
+
+
+
+    /**
+     * 失败返回结果
+     * @param resultCode 提示信息
+     */
+    public static <T> CommonResult<T> fail(ResultCode resultCode) {
+        return new CommonResult<T>(ResultCode.FAILED.getCode(), resultCode.getMessage(), null);
     }
 }

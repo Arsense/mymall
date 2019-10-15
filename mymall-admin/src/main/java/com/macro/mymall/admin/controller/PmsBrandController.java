@@ -17,7 +17,7 @@ import java.util.List;
  * @author tangwei
  * @date 2019/10/15 16:46
  */
-@Controller
+@Controller("/brand")
 public class PmsBrandController {
 
         @Autowired

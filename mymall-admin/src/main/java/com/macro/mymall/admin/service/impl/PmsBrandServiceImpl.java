@@ -21,31 +21,42 @@ public class PmsBrandServiceImpl implements PmsBrandService {
 
     @Override
     public List<PmsBrand> listAllBrand() {
+        System.out.println("===========listAllBrand 调用");
         return null;
     }
 
     @Override
     public int createBrand(PmsBrand brand) {
+        System.out.println("===========createBrand 调用");
+
         return 0;
     }
 
     @Override
     public int updateBrand(Long id, PmsBrand brand) {
+        System.out.println("===========updateBrand 调用");
+
         return 0;
     }
 
     @Override
     public int deleteBrand(Long id) {
+        System.out.println("===========deleteBrand 调用");
+
         return 0;
     }
 
     @Override
     public List<PmsBrand> listBrand(int pageNum, int pageSize) {
+        System.out.println("===========listBrand 调用");
+
         return null;
     }
 
     @Override
     public PmsBrand getBrand(Long id) {
+        System.out.println("===========getBrand 调用");
+
         return null;
     }
 }
