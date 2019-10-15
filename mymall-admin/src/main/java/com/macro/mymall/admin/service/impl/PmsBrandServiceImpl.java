@@ -1,5 +1,6 @@
 package com.macro.mymall.admin.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.macro.domain.model.PmsBrand;
 import com.macro.domain.model.PmsBrandExample;
 import com.macro.mapper.PmsBrandMapper;
@@ -29,35 +30,34 @@ public class PmsBrandServiceImpl implements PmsBrandService {
     @Override
     public int createBrand(PmsBrand brand) {
         System.out.println("===========createBrand 调用");
-
-        return 0;
+        return pmsBrandMapper.insertSelective(brand);
     }
 
     @Override
     public int updateBrand(Long id, PmsBrand brand) {
         System.out.println("===========updateBrand 调用");
-
-        return 0;
+        brand.setId(id);
+        return pmsBrandMapper.updateByPrimaryKeySelective(brand);
     }
 
     @Override
     public int deleteBrand(Long id) {
         System.out.println("===========deleteBrand 调用");
 
-        return 0;
+        return pmsBrandMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public List<PmsBrand> listBrand(int pageNum, int pageSize) {
         System.out.println("===========listBrand 调用");
-
-        return null;
+        PageHelper.startPage(pageNum, pageSize);
+        return pmsBrandMapper.selectByExample(new PmsBrandExample());
     }
 
     @Override
     public PmsBrand getBrand(Long id) {
         System.out.println("===========getBrand 调用");
 
-        return null;
+        return pmsBrandMapper.selectByPrimaryKey(id);
     }
 }
