@@ -17,7 +17,10 @@ public class AdminApplication {
 
 		String serverPort = context.getEnvironment().getProperty("server.port");
 		//输入访问链接
+
 		LOG.info("MyMall started at http://localhost:" + serverPort);
+		LOG.info("api文档列表  http://localhost:" + serverPort + "/swagger-ui.html");
+
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.macro.mymall.admin.service.impl;
 
 import com.macro.domain.model.PmsBrand;
+import com.macro.domain.model.PmsBrandExample;
 import com.macro.mapper.PmsBrandMapper;
 import com.macro.mymall.admin.service.PmsBrandService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class PmsBrandServiceImpl implements PmsBrandService {
     @Override
     public List<PmsBrand> listAllBrand() {
         System.out.println("===========listAllBrand 调用");
-        return null;
+        return pmsBrandMapper.selectByExample(new PmsBrandExample());
     }
 
     @Override

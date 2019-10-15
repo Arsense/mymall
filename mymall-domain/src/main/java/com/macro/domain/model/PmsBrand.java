@@ -1,5 +1,6 @@
 package com.macro.domain.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
@@ -15,6 +16,7 @@ public class PmsBrand  {
      *
      * @mbggenerated
      */
+    @ApiModelProperty("首字母")
     private String firstLetter;
 
     private Integer sort;

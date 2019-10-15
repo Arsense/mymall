@@ -3,11 +3,14 @@ package com.macro.mapper;
 import com.macro.domain.model.PmsBrand;
 import com.macro.domain.model.PmsBrandExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
  * 商品品牌标
  */
+@Mapper
 public interface PmsBrandMapper {
     int countByExample(PmsBrandExample example);
 
