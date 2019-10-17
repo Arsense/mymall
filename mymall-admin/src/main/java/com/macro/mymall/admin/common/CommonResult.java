@@ -22,7 +22,7 @@ public class CommonResult<T> {
      */
     private T data;
 
-    protected CommonResult(long code, String message, T data) {
+    public CommonResult(long code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;
@@ -72,4 +72,21 @@ public class CommonResult<T> {
     public static <T> CommonResult<T> fail(ResultCode resultCode) {
         return new CommonResult<T>(ResultCode.FAILED.getCode(), resultCode.getMessage(), null);
     }
+
+
+    /**
+     * 未登录返回结果
+     */
+    public static <T> CommonResult<T> unauthorized(T data) {
+        return new CommonResult<T>(ResultCode.UNAUTHORIZED.getCode(), ResultCode.UNAUTHORIZED.getMessage(), data);
+    }
+
+
+    /**
+     * 未登录返回结果
+     */
+    public static <T> CommonResult<T> forbidden(T data) {
+        return new CommonResult<T>(ResultCode.FORBIDDEN.getCode(), ResultCode.FORBIDDEN.getMessage(), data);
+    }
+
 }
