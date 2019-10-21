@@ -1,8 +1,12 @@
 package com.macro.mymall.admin.config;
 
+import com.macro.domain.model.ums.UmsAdmin;
+import com.macro.domain.model.ums.UmsPermission;
+import com.macro.mymall.admin.common.AdminUserDetails;
 import com.macro.mymall.admin.permit.JwtAuthenticationTokenFilter;
 import com.macro.mymall.admin.permit.RestAuthenticationEntryPoint;
 import com.macro.mymall.admin.permit.RestfulAccessDeniedHandler;
+import com.macro.mymall.admin.service.UmsAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +16,14 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * EnableWebSecurity spring-security 开启才会生效
@@ -27,9 +36,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled=true)
 public class SecurityConfig  extends WebSecurityConfigurerAdapter{
-//
-//    @Autowired
-//    private UmsAdminService adminService;
+
+    @Autowired
+    private UmsAdminService adminService;
     @Autowired
     private RestfulAccessDeniedHandler restfulAccessDeniedHandler;
     @Autowired
@@ -92,5 +101,24 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    /**
+     * 权限登录实际获取用户的方法
+     * @return
+     */
+    @Bean
+    @Override
+    public UserDetailsService userDetailsService() {
+        //获取登录用户信息
+        return username ->{
+            UmsAdmin admin = adminService.getAdminByUsername(username);
+            if (admin != null) {
+//                List<UmsPermission> permissionList = adminService.getPermissionList(admin.getId());
+                List<UmsPermission> permissionList = new ArrayList<>();
+                return new AdminUserDetails(admin, new ArrayList<>());
+            }
+            throw new UsernameNotFoundException("用户名或密码错误");
+        };
     }
 }

@@ -18,6 +18,7 @@ Api文档:  http://localhost:8081/swagger-ui.html
 ## 订单管理
 
 ## 营销管理
+##用户权限
 
 ##  引用技术
 - springboot
@@ -25,6 +26,12 @@ Api文档:  http://localhost:8081/swagger-ui.html
 - swagger2
 - mybatis逆向工程
 - SpringSecurity 用户权限认证与登录
+
+## 表
+添加 pms_brand 品牌表
+ums_admin 用户姓名密码表
+ums_admin_role_relation 用户权限表
+
 
 
 ## 项目进度

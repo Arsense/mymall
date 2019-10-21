@@ -1,6 +1,7 @@
-package com.macro.mymall.admin.controller;
+package com.macro.mymall.admin.controller.ums;
 
-import com.macro.domain.model.UmsAdminLoginParam;
+import com.macro.domain.model.ums.UmsAdmin;
+import com.macro.domain.model.ums.UmsAdminLoginParam;
 import com.macro.mymall.admin.common.CommonResult;
 import com.macro.mymall.admin.service.UmsAdminService;
 import io.swagger.annotations.Api;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.*;
 /**
@@ -46,10 +48,19 @@ public class UmsAdminController {
         tokenMap.put("token", token);
         tokenMap.put("tokenHead", tokenHead);
         return CommonResult.success(tokenMap);
-
-
     }
 
-
+    @ApiOperation(value = "获取当前登录用户信息")
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult getAdminInfo(Principal principal) {
+        String username = principal.getName();
+        UmsAdmin umsAdmin = adminService.getAdminByUsername(username);
+        Map<String, Object> data = new HashMap<>();
+        data.put("username", umsAdmin.getUsername());
+        data.put("roles", new String[]{"TEST"});
+        data.put("icon", umsAdmin.getIcon());
+        return CommonResult.success(data);
+    }
 
 }
