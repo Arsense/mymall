@@ -10,6 +10,7 @@ mall商城购物系统学习
 - mymall-domain 基本属性类
 运行后访问
 Api文档:  http://localhost:8081/swagger-ui.html
+端口是配置在application.yml
 ## 功能设计
 
 ## 商品管理
@@ -26,10 +27,11 @@ Api文档:  http://localhost:8081/swagger-ui.html
 - SpringSecurity 用户权限认证与登录
 
 
-
 ## 项目进度
 
 总体进度： 2%   1845/8w
-##参考
+
+
+## 参考
 前端部署参考:
 https://juejin.im/post/5d2c7c6b518825076377d7b9
