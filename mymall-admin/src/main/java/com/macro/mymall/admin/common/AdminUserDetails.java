@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @author tangwei
+ * @author clay
  * @date 2019/10/21 20:27
  */
 public class AdminUserDetails implements UserDetails {

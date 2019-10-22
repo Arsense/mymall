@@ -5,7 +5,7 @@ import com.macro.domain.model.PmsBrand;
 import java.util.List;
 
 /**
- * @author tangwei
+ * @author clay
  * @date 2019/10/15 16:46
  */
 public interface PmsBrandService {

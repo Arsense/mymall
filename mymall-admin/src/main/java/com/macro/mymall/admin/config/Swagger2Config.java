@@ -14,7 +14,7 @@ import java.awt.*;
 
 /**
  * 开启Swagger2 注解规范
- * @author tangwei
+ * @author clay
  * @date 2019/10/15 18:03
  */
 @Configuration

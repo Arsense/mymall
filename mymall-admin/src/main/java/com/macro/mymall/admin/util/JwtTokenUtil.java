@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import java.util.*;
 /**
- * @author tangwei
+ * @author clay
  * @date 2019/10/16 18:26
  */
 @Component

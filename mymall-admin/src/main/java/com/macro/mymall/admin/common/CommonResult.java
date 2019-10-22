@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * Rest Api 统一返回类
- * @author tangwei
+ * @author clay
  * @date 2019/10/15 17:14
  */
 @Data

@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 分页数据封装类
- * @author tangwei
+ * @author clay
  * @date 2019/10/15 17:25
  */
 @Data
@@ -38,7 +38,7 @@ public class CommonPage<T> {
      */
     public static <T>CommonPage<T> restPage(List<T> list) {
         CommonPage<T> commonPage = new CommonPage<T>();
-        PageInfo<T> pageInfo  = (PageInfo<T>) list;
+        PageInfo<T> pageInfo  = new PageInfo<>(list);
         commonPage.setList(pageInfo.getList());
         commonPage.setPageNumer(pageInfo.getPageNum());
         commonPage.setPageSize(pageInfo.getPageSize());
@@ -46,5 +46,7 @@ public class CommonPage<T> {
         commonPage.setTotalPage(pageInfo.getPages());
         return commonPage;
     }
+
+
 
 }

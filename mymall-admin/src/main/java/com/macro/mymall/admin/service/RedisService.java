@@ -1,7 +1,7 @@
 package com.macro.mymall.admin.service;
 
 /**
- * @author tangwei
+ * @author clay
  * @date 2019/10/15 20:01
  */
 public interface RedisService {

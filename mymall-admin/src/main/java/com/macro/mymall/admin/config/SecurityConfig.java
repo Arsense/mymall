@@ -29,7 +29,7 @@ import java.util.List;
  * EnableWebSecurity spring-security 开启才会生效
  * Spring Security默认是禁用注解的，要想开启注解， 需要在继承WebSecurityConfigurerAdapter的类上加@EnableGlobalMethodSecurity注解， 来判断用户对某个控制层的方法是否具有访问权限
  *
- * @author tangwei
+ * @author clay
  * @date 2019/10/16 18:32
  */
 @Configuration

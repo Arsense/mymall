@@ -14,6 +14,7 @@ Api文档:  http://localhost:8081/swagger-ui.html
 ## 功能设计
 
 ## 商品管理
+### 1. 商品查询
 
 ## 订单管理
 
@@ -28,15 +29,15 @@ Api文档:  http://localhost:8081/swagger-ui.html
 - SpringSecurity 用户权限认证与登录
 
 ## 表
-添加 pms_brand 品牌表
-ums_admin 用户姓名密码表
-ums_admin_role_relation 用户权限表
+- 添加 pms_brand 品牌表
+- ums_admin 用户姓名密码表
+- ums_admin_role_relation 用户权限表
 
 
 
 ## 项目进度
 
-总体进度： 2%   1845/8w
+总体进度： 4%   3923/8w
 
 
 ## 参考

@@ -19,7 +19,7 @@ import java.security.Principal;
 import java.util.HashMap;
 import java.util.*;
 /**
- * @author tangwei
+ * @author clay
  * @date 2019/10/16 18:15
  */
 @Api(tags = "UmsAdminController", description = "后台用户管理")

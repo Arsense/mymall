@@ -12,7 +12,7 @@ import java.util.Properties;
 
 /**
  * 自定义注释生成器
- * @author tangwei
+ * @author clay
  * @date 2019/10/15 15:45
  */
 public class CommentGenerator extends DefaultCommentGenerator {

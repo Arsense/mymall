@@ -14,7 +14,7 @@ import java.io.IOException;
  *
  * 当未登录或者token失效访问接口时，自定义的返回结果
  *
- * @author tangwei
+ * @author clay
  * @date 2019/10/17 18:01
  */
 @Component

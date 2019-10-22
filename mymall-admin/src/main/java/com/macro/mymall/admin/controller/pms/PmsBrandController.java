@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  * 品牌管理Controller
- * @author tangwei
+ * @author clay
  * @date 2019/10/15 16:46
  */
 @Api(tags = "PmsBrandController", description = "商品品牌管理")
