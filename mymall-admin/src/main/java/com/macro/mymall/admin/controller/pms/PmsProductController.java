@@ -4,16 +4,14 @@ import com.macro.domain.model.ums.PmsProduct;
 import com.macro.domain.model.ums.PmsProductParam;
 import com.macro.mymall.admin.common.CommonPage;
 import com.macro.mymall.admin.common.CommonResult;
-import com.macro.mymall.admin.query.PmsProductQueryParam;
+import com.macro.mymall.admin.request.PmsProductQueryParam;
 import com.macro.mymall.admin.service.PmsProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

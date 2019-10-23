@@ -1,7 +1,7 @@
 package com.macro.mymall.admin.service;
 
-import com.macro.domain.model.ums.PmsProductAttribute;
-import com.macro.mymall.admin.query.PmsProductAttributeParam;
+import com.macro.domain.PmsProductAttribute;
+import com.macro.mymall.admin.request.PmsProductAttributeParam;
 
 import java.util.List; /**
  * @author tangwei

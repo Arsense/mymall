@@ -1,4 +1,4 @@
-package com.macro.mymall.admin.query;
+package com.macro.mymall.admin.request;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

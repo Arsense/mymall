@@ -29,18 +29,20 @@
             <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
         <!--指定生成model的路径-->
-        <javaModelGenerator targetPackage="com.macro.domain" targetProject="${mdg.model.path}"/>
+        <javaModelGenerator targetPackage="com.macro.domain.model" targetProject="${mdg.model.path}"/>
         <!--指定生成mapper.xml的路径-->
         <sqlMapGenerator targetPackage="mapper" targetProject="${mdg.xml.path}"/>
         <!--指定生成mapper接口的的路径-->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.macro.mapper"
                              targetProject="${mdg.mapper.path}"/>
         <!--生成全部表tableName设为%-->
-        <table tableName="pms_product">
+        <table tableName="pms_product_attribute_category">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
-
+        <table tableName="pms_product_attribute">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
     </context>
 
 </generatorConfiguration>

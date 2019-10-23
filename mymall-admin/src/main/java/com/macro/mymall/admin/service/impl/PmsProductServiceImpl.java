@@ -4,7 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.macro.domain.model.ums.PmsProduct;
 import com.macro.domain.model.ums.PmsProductExample;
 import com.macro.mapper.PmsProductMapper;
-import com.macro.mymall.admin.query.PmsProductQueryParam;
+import com.macro.mymall.admin.request.PmsProductQueryParam;
 import com.macro.mymall.admin.service.PmsProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,9 +1,8 @@
 package com.macro.mymall.admin.controller.pms;
 
-import com.macro.domain.model.ums.PmsProductAttribute;
 import com.macro.mymall.admin.common.CommonPage;
 import com.macro.mymall.admin.common.CommonResult;
-import com.macro.mymall.admin.query.PmsProductAttributeParam;
+import com.macro.mymall.admin.request.PmsProductAttributeParam;
 import com.macro.mymall.admin.service.PmsProductAttributeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,7 +29,7 @@ public class PmsProductAttributeController {
     private PmsProductAttributeService productAttributeService;
 
     @ApiOperation("根据分类查询属性列表或参数列表")
-    @ApiImplicitParams({@ApiImplicitParam(name = "type", value = "0表示属性，1表示参数", required = true, paramType = "query", dataType = "integer")})
+    @ApiImplicitParams({@ApiImplicitParam(name = "type", value = "0表示属性，1表示参数", required = true, paramType = "request", dataType = "integer")})
     @RequestMapping(value = "/list/{cid}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<PmsProductAttribute>> getList(@PathVariable Long cid,
@@ -91,5 +89,8 @@ public class PmsProductAttributeController {
             return CommonResult.fail();
         }
     }
+
+
+
 
 }

@@ -1,4 +1,4 @@
-package com.macro.mymall.admin.controller;
+package com.macro.mymall.admin.controller.cms;
 
 import com.macro.domain.model.ums.CmsPrefrenceArea;
 import com.macro.mymall.admin.common.CommonResult;
@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *
+ * 商品优选管理Controller  可以看成某个商品权重的存储
  * @author tangwei
  * @date 2019/10/22 20:10
  */
