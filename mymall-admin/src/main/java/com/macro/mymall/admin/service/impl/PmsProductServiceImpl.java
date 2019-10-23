@@ -54,4 +54,43 @@ public class PmsProductServiceImpl implements PmsProductService {
 
 
     }
+
+    @Override
+    public int updateRecommendStatus(List<Long> ids, Integer recommendStatus) {
+        PmsProduct product = new PmsProduct();
+        product.setRecommandStatus(recommendStatus);
+
+        return updateBySelective(product, ids);
+    }
+
+    @Override
+    public int updatePublishStatus(List<Long> ids, Integer publishStatus) {
+        PmsProduct product = new PmsProduct();
+        product.setPublishStatus(publishStatus);
+
+        return updateBySelective(product, ids);
+    }
+
+    @Override
+    public int updateNewStatus(List<Long> ids, Integer newStatus) {
+        PmsProduct product = new PmsProduct();
+        product.setNewStatus(newStatus);
+
+        return updateBySelective(product, ids);
+
+    }
+
+    @Override
+    public int updateDeleteStatus(List<Long> ids, Integer deleteStatus) {
+        PmsProduct product = new PmsProduct();
+        product.setDeleteStatus(deleteStatus);
+
+        return updateBySelective(product, ids);
+    }
+
+    private int updateBySelective(PmsProduct product, List<Long> ids) {
+        PmsProductExample example = new PmsProductExample();
+        example.createCriteria().andIdIn(ids);
+        return productMapper.updateByExampleSelective(product, example);
+    }
 }
