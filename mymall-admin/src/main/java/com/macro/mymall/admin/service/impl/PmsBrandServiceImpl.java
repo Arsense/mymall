@@ -1,8 +1,8 @@
 package com.macro.mymall.admin.service.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.macro.domain.model.PmsBrand;
-import com.macro.domain.model.PmsBrandExample;
+import com.macro.domain.model.pms.PmsBrand;
+import com.macro.domain.model.pms.PmsBrandExample;
 import com.macro.mapper.PmsBrandMapper;
 import com.macro.mymall.admin.service.PmsBrandService;
 import org.springframework.beans.factory.annotation.Autowired;

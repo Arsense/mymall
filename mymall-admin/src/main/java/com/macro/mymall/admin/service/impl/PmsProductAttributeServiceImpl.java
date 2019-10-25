@@ -1,12 +1,14 @@
 package com.macro.mymall.admin.service.impl;
 
-import com.macro.domain.PmsProductAttribute;
-import com.macro.domain.PmsProductAttributeCategory;
-import com.macro.domain.PmsProductAttributeExample;
+import com.macro.domain.model.pms.PmsProductAttribute;
+import com.macro.domain.model.pms.PmsProductAttributeCategory;
+import com.macro.domain.model.pms.PmsProductAttributeExample;
 import com.macro.mapper.PmsProductAttributeCategoryMapper;
 import com.macro.mapper.PmsProductAttributeMapper;
 import com.macro.mymall.admin.request.PmsProductAttributeParam;
 import com.macro.mymall.admin.service.PmsProductAttributeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,8 @@ import java.util.List;
  */
 @Service
 public class PmsProductAttributeServiceImpl implements PmsProductAttributeService {
+
+    public static final Logger log = LoggerFactory.getLogger(PmsProductAttributeServiceImpl.class);
 
     @Autowired
     private PmsProductAttributeMapper productAttributeMapper;
@@ -50,7 +54,7 @@ public class PmsProductAttributeServiceImpl implements PmsProductAttributeServic
         PmsProductAttributeCategory category = categoryMapper.selectByPrimaryKey(record.getProductAttributeCategoryId());
 
         if (category == null) {
-            //log something
+            log.info("method: create=>没有查询到相应的商品分类属性");
             return 0;
         }
         //0->规格；1->参数
@@ -77,7 +81,7 @@ public class PmsProductAttributeServiceImpl implements PmsProductAttributeServic
         //删除完成后修改数量
         if (type == 0) {
             if (pmsProductAttributeCategory.getAttributeCount() >= count) {
-                pmsProductAttributeCategory.setAttributeCount(pmsProductAttributeCategory.getAttributeCount()-count);
+                pmsProductAttributeCategory.setAttributeCount(pmsProductAttributeCategory.getAttributeCount() - count);
             } else {
                 pmsProductAttributeCategory.setAttributeCount(0);
             }

@@ -1,4 +1,4 @@
-package com.macro.domain.model;
+package com.macro.domain.model.pms;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

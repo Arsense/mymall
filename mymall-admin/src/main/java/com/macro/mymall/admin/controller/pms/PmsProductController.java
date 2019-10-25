@@ -58,7 +58,7 @@ public class PmsProductController {
     }
 
     @ApiOperation("批量设为新品")
-    @RequestMapping(value = "/update/recommendStatus", method = RequestMethod.POST)
+    @RequestMapping(value = "/update/newStatus", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateNewStatus(@RequestParam("ids") List<Long> ids,
                                               @RequestParam("newStatus") Integer newStatus){

@@ -1,8 +1,6 @@
 package com.macro.mymall.admin.controller.pms;
 
-import com.macro.domain.model.PmsProductCategoryWithChildrenItem;
-import com.macro.domain.model.ums.PmsProduct;
-import com.macro.mymall.admin.common.CommonPage;
+import com.macro.domain.model.pms.PmsProductCategoryWithChildrenItem;
 import com.macro.mymall.admin.common.CommonResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,6 +27,12 @@ public class PmsProductCategoryController {
     @ResponseBody
     public CommonResult<List<PmsProductCategoryWithChildrenItem>> listWithChildren() {
 //        List<PmsProductCategoryWithChildrenItem> list = productCategoryService.listWithChildren();
+        List<PmsProductCategoryWithChildrenItem> list = new ArrayList<>();
+        PmsProductCategoryWithChildrenItem item = new PmsProductCategoryWithChildrenItem();
+
+        item.setId(1L);
+        item.setName("测试子分类");
+
         return CommonResult.success(new ArrayList<>());
     }
 

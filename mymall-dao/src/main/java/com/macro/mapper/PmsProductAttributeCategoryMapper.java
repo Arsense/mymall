@@ -1,7 +1,7 @@
 package com.macro.mapper;
 
-import com.macro.domain.PmsProductAttributeCategory;
-import com.macro.domain.PmsProductAttributeCategoryExample;
+import com.macro.domain.model.pms.PmsProductAttributeCategory;
+import com.macro.domain.model.pms.PmsProductAttributeCategoryExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

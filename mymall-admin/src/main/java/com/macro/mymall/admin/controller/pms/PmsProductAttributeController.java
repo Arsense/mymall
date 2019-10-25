@@ -1,5 +1,6 @@
 package com.macro.mymall.admin.controller.pms;
 
+import com.macro.domain.model.pms.PmsProductAttribute;
 import com.macro.mymall.admin.common.CommonPage;
 import com.macro.mymall.admin.common.CommonResult;
 import com.macro.mymall.admin.request.PmsProductAttributeParam;

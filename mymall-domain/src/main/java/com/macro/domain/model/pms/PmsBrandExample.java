@@ -1,4 +1,4 @@
-package com.macro.domain.model;
+package com.macro.domain.model.pms;
 
 import java.util.ArrayList;
 import java.util.List;

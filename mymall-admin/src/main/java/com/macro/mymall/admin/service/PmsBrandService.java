@@ -1,6 +1,6 @@
 package com.macro.mymall.admin.service;
 
-import com.macro.domain.model.PmsBrand;
+import com.macro.domain.model.pms.PmsBrand;
 
 import java.util.List;
 

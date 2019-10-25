@@ -1,6 +1,6 @@
 package com.macro.mymall.admin.controller.pms;
 
-import com.macro.domain.model.PmsBrand;
+import com.macro.domain.model.pms.PmsBrand;
 import com.macro.mymall.admin.common.CommonResult;
 import com.macro.mymall.admin.common.CommonPage;
 import com.macro.mymall.admin.service.PmsBrandService;

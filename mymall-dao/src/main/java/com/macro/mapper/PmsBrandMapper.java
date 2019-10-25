@@ -1,7 +1,7 @@
 package com.macro.mapper;
 
-import com.macro.domain.model.PmsBrand;
-import com.macro.domain.model.PmsBrandExample;
+import com.macro.domain.model.pms.PmsBrand;
+import com.macro.domain.model.pms.PmsBrandExample;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;

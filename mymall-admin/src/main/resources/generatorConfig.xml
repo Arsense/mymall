@@ -35,12 +35,9 @@
         <!--指定生成mapper接口的的路径-->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.macro.mapper"
                              targetProject="${mdg.mapper.path}"/>
-        <!--生成全部表tableName设为%-->
-        <table tableName="pms_product_attribute_category">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
 
-        <table tableName="pms_product_attribute">
+        <!--生成全部表tableName设为%-->
+        <table tableName="ums_member_level">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

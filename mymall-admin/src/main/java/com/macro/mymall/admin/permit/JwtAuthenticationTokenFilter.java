@@ -48,7 +48,6 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
      */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        System.out.println("doFilterInternal is commom in");
         //从request中解析出token  然后取出于token对比校验
         String authHeader = request.getHeader(this.tokenHeader);
         //请求头校验
