@@ -3,6 +3,7 @@ package com.macro.mymall.admin.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.macro.domain.model.ums.PmsProduct;
 import com.macro.domain.model.ums.PmsProductExample;
+import com.macro.domain.model.ums.PmsProductParam;
 import com.macro.mapper.PmsProductMapper;
 import com.macro.mymall.admin.request.PmsProductQueryParam;
 import com.macro.mymall.admin.service.PmsProductService;
@@ -53,6 +54,17 @@ public class PmsProductServiceImpl implements PmsProductService {
         return productMapper.selectByExample(productExample);
 
 
+    }
+
+    @Override
+    public int create(PmsProductParam productParam) {
+        int count;
+        //创建商品
+        productParam.setId(null);
+        productMapper.insertSelective(productParam);
+        //很多商品属性没写
+        count = 1;
+        return count;
     }
 
     @Override

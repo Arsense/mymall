@@ -1,6 +1,7 @@
 package com.macro.mymall.admin.service;
 
 import com.macro.domain.model.pms.PmsProductAttribute;
+import com.macro.domain.model.pms.ProductAttrInfo;
 import com.macro.mymall.admin.request.PmsProductAttributeParam;
 
 import java.util.List; /**
@@ -49,4 +50,5 @@ public interface PmsProductAttributeService {
     int create(PmsProductAttributeParam productAttributeParam);
 
 
+    List<ProductAttrInfo> getProductAttrInfo(Long productCategoryId);
 }

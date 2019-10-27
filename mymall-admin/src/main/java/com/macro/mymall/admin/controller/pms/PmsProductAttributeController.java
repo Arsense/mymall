@@ -1,6 +1,7 @@
 package com.macro.mymall.admin.controller.pms;
 
 import com.macro.domain.model.pms.PmsProductAttribute;
+import com.macro.domain.model.pms.ProductAttrInfo;
 import com.macro.mymall.admin.common.CommonPage;
 import com.macro.mymall.admin.common.CommonResult;
 import com.macro.mymall.admin.request.PmsProductAttributeParam;
@@ -91,6 +92,14 @@ public class PmsProductAttributeController {
         }
     }
 
+
+    @ApiOperation("根据商品分类的id获取商品属性及属性分类")
+    @RequestMapping(value = "/attrInfo/{productCategoryId}", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<List<ProductAttrInfo>> getAttrInfo(@PathVariable Long productCategoryId) {
+        List<ProductAttrInfo> productAttrInfoList = productAttributeService.getProductAttrInfo(productCategoryId);
+        return CommonResult.success(productAttrInfoList);
+    }
 
 
 

@@ -41,7 +41,12 @@ public class PmsProductController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody PmsProductParam productParam) {
-        return CommonResult.fail();
+        int count = productService.create(productParam);
+        if (count > 0) {
+            return CommonResult.success(count);
+        } else {
+            return CommonResult.fail();
+        }
     }
 
     @ApiOperation("批量推荐商品")

@@ -1,6 +1,7 @@
 package com.macro.mymall.admin.service;
 
 import com.macro.domain.model.ums.PmsProduct;
+import com.macro.domain.model.ums.PmsProductParam;
 import com.macro.mymall.admin.request.PmsProductQueryParam;
 
 import java.util.List;
@@ -16,6 +17,13 @@ public interface PmsProductService {
      */
     List<PmsProduct> list(PmsProductQueryParam productQueryParam, Integer pageSize, Integer pageNum);
 
+
+    /**
+     *  创建商品
+     * @param productParam
+     * @return
+     */
+    int create(PmsProductParam productParam);
 
     /**
      * 批量修改商品推荐状态
@@ -40,6 +48,7 @@ public interface PmsProductService {
      * 批量删除商品
      */
     int updateDeleteStatus(List<Long> ids, Integer deleteStatus);
+
 
 
 }
