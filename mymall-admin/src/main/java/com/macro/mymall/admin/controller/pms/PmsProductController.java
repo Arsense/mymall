@@ -9,6 +9,7 @@ import com.macro.mymall.admin.service.PmsProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -105,5 +106,18 @@ public class PmsProductController {
     @ResponseBody
     public CommonResult update() {
         return CommonResult.fail();
+    }
+
+    @ApiOperation("批量上下架")
+    @RequestMapping(value = "/update/publishStatus", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult updatePublishStatus(@RequestParam("ids") List<Long> ids,
+                                            @RequestParam("publishStatus") Integer publishStatus) {
+        int count = productService.updatePublishStatus(ids, publishStatus);
+        if (count > 0) {
+            return CommonResult.success(count);
+        } else {
+            return CommonResult.fail();
+        }
     }
 }
