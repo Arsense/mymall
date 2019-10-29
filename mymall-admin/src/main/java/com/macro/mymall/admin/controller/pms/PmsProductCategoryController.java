@@ -41,8 +41,7 @@ public class PmsProductCategoryController {
     @ApiOperation("添加产品分类")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult create( @RequestBody PmsProductCategoryParam productCategoryParam,
-                               BindingResult result) {
+    public CommonResult create(@RequestBody PmsProductCategoryParam productCategoryParam) {
         int count = productCategoryService.create(productCategoryParam);
         if (count > 0) {
             return CommonResult.success(count);
@@ -59,7 +58,6 @@ public class PmsProductCategoryController {
                                                                 @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                                                                 @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
         List<PmsProductCategory> productCategoryList =  productCategoryService.getList(parentId, pageSize, pageNum);
-
         return CommonResult.success(CommonPage.restPage(productCategoryList));
     }
 

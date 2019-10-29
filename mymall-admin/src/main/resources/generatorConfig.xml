@@ -37,7 +37,7 @@
                              targetProject="${mdg.mapper.path}"/>
 
         <!--生成全部表tableName设为%-->
-        <table tableName="pms_product_category">
+        <table tableName="oms_order_setting">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>
