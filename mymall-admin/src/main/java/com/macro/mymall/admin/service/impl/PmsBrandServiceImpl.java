@@ -56,4 +56,28 @@ public class PmsBrandServiceImpl implements PmsBrandService {
     public PmsBrand getBrand(Long id) {
         return pmsBrandMapper.selectByPrimaryKey(id);
     }
+
+    @Override
+    public int updateFactoryStatus(List<Long> ids, Integer factoryStatus) {
+        PmsBrand brand = new PmsBrand();
+        brand.setFactoryStatus(factoryStatus);
+
+        return updateBrands(ids, brand);
+    }
+
+    @Override
+    public int updateShowStatus(List<Long> ids, Integer showStatus) {
+        PmsBrand brand = new PmsBrand();
+        brand.setFactoryStatus(showStatus);
+
+        return updateBrands(ids, brand);
+    }
+
+    private int updateBrands(List<Long> ids, PmsBrand brand){
+        PmsBrandExample pmsBrandExample = new PmsBrandExample();
+        pmsBrandExample.createCriteria().andIdIn(ids);
+
+        return pmsBrandMapper.updateByExampleSelective(brand, pmsBrandExample);
+
+    }
 }

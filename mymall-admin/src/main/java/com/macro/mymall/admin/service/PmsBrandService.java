@@ -56,4 +56,7 @@ public interface PmsBrandService {
     PmsBrand getBrand(Long id);
 
 
+    int updateFactoryStatus(List<Long> ids, Integer factoryStatus);
+
+    int updateShowStatus(List<Long> ids, Integer showStatus);
 }

@@ -1,6 +1,8 @@
 package com.macro.mymall.admin.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.macro.domain.model.pms.PmsProductAttributeCategory;
+import com.macro.domain.model.pms.PmsProductAttributeCategoryExample;
 import com.macro.domain.model.pms.PmsProductAttributeCategoryItem;
 import com.macro.mapper.PmsProductAttributeCategoryDao;
 import com.macro.mapper.PmsProductAttributeCategoryMapper;
@@ -25,7 +27,8 @@ public class PmsProductAttributeCategoryServiceImpl implements PmsProductAttribu
 
     @Override
     public List<PmsProductAttributeCategory> getList(Integer pageSize, Integer pageNum) {
-        return null;
+        PageHelper.startPage(pageNum, pageSize);
+        return productAttributeCategoryMapper.selectByExample(new PmsProductAttributeCategoryExample());
     }
 
     @Override

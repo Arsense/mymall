@@ -1,9 +1,11 @@
 package com.macro.mymall.admin.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.macro.domain.model.pms.PmsProductAttribute;
 import com.macro.domain.model.pms.PmsProductAttributeCategory;
 import com.macro.domain.model.pms.PmsProductAttributeExample;
 import com.macro.domain.model.pms.ProductAttrInfo;
+import com.macro.domain.model.ums.PmsProduct;
 import com.macro.mapper.PmsProductAttributeCategoryMapper;
 import com.macro.mapper.PmsProductAttributeDao;
 import com.macro.mapper.PmsProductAttributeMapper;
@@ -32,14 +34,17 @@ public class PmsProductAttributeServiceImpl implements PmsProductAttributeServic
     @Autowired
     private PmsProductAttributeCategoryMapper categoryMapper;
 
-
     @Autowired
     private PmsProductAttributeDao productAttributeDao;
 
     @Override
     public List<PmsProductAttribute> getList(Long cid, Integer type, Integer pageSize, Integer pageNum) {
         //构建分页参数 查询
-        return null;
+        PageHelper.startPage(pageNum, pageSize);
+        PmsProductAttributeExample record = new PmsProductAttributeExample();
+        record.setOrderByClause("sort desc");
+        record.createCriteria().andProductAttributeCategoryIdEqualTo(cid).andTypeEqualTo(type);
+        return  productAttributeMapper.selectByExample(record);
     }
 
 
@@ -51,6 +56,11 @@ public class PmsProductAttributeServiceImpl implements PmsProductAttributeServic
      */
     @Override
     public int create(PmsProductAttributeParam productAttributeParam) {
+        if (productAttributeParam == null) {
+            log.error("productAttributeParam 不能为空");
+            return 0;
+        }
+
         PmsProductAttribute record = new PmsProductAttribute();
         BeanUtils.copyProperties(productAttributeParam, record);
 
@@ -65,9 +75,9 @@ public class PmsProductAttributeServiceImpl implements PmsProductAttributeServic
         }
         //0->规格；1->参数
         if (record.getType() == 0) {
-            category.setAttributeCount( category.getAttributeCount() + 1);
+            category.setAttributeCount(category.getAttributeCount() + 1);
         } else if(record.getType() == 1) {
-            category.setParamCount( category.getParamCount() + 1);
+            category.setParamCount(category.getParamCount() + 1);
         }
 
         categoryMapper.updateByPrimaryKey(category);

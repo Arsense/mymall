@@ -3,6 +3,7 @@ package com.macro.mymall.admin.service;
 import com.macro.domain.model.pms.PmsProductAttribute;
 import com.macro.domain.model.pms.ProductAttrInfo;
 import com.macro.mymall.admin.request.PmsProductAttributeParam;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List; /**
  * @author tangwei
@@ -47,6 +48,7 @@ public interface PmsProductAttributeService {
      * @param productAttributeParam
      * @return
      */
+    @Transactional
     int create(PmsProductAttributeParam productAttributeParam);
 
 

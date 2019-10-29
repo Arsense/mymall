@@ -103,4 +103,33 @@ public class PmsBrandController {
         }
 
 
+        @ApiOperation("是否开启品牌制造商")
+        @RequestMapping(value = "/update/factoryStatus", method = RequestMethod.POST)
+        @ResponseBody
+        public CommonResult updateFactoryStatus(@RequestParam("ids") List<Long> ids,
+                                                @RequestParam("factoryStatus") Integer factoryStatus) {
+            int count = pmsBrandService.updateFactoryStatus(ids, factoryStatus);
+            if (count == 1) {
+                return CommonResult.success(null);
+            } else {
+                return CommonResult.fail("操作失败");
+            }
+        }
+
+
+        @ApiOperation("是否开启品牌制造商")
+        @RequestMapping(value = "/update/showStatus", method = RequestMethod.POST)
+        @ResponseBody
+        public CommonResult updateShowStatus(@RequestParam("ids") List<Long> ids,
+                                             @RequestParam("showStatus") Integer showStatus) {
+            int count = pmsBrandService.updateShowStatus(ids, showStatus);
+            if (count == 1) {
+                return CommonResult.success(null);
+            } else {
+                return CommonResult.fail("操作失败");
+            }
+        }
+
+
+
 }

@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,12 +29,7 @@ public class PmsProductAttributeCategoryController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<PmsProductAttributeCategory>> getList(@RequestParam(defaultValue = "5") Integer pageSize,                    @RequestParam(defaultValue = "1") Integer pageNum) {
-//        List<PmsProductAttributeCategory> productAttributeCategoryList = productAttributeCategoryService.getList(pageSize, pageNum);
-        List<PmsProductAttributeCategory> productAttributeCategoryList = new ArrayList<>();
-        PmsProductAttributeCategory category = new PmsProductAttributeCategory();
-        category.setId(1L);
-        category.setName("测试属性分类");
-        category.setParamCount(11);
+        List<PmsProductAttributeCategory> productAttributeCategoryList = productAttributeCategoryService.getList(pageSize, pageNum);
         return CommonResult.success(CommonPage.restPage(productAttributeCategoryList));
     }
 
