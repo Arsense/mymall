@@ -24,7 +24,11 @@ Api文档:  http://localhost:8081/swagger-ui.html
 
            
 2. 商品分类管理
-    
+ -    商品分页查询 完成
+ -    商品分类添加 完成
+ -    修改导航栏状态 完成
+ -    修改显示栏状态 完成
+ -    删除商品分类 完成
 
 ## 订单管理
 
@@ -43,6 +47,10 @@ Api文档:  http://localhost:8081/swagger-ui.html
 - ums_admin 用户姓名密码表
 - ums_admin_role_relation 用户权限表
 
+
+## 待完成
+@Validated 与 与@Empty之类校验没加    
+权限控制没加
 
 
 ## 项目进度
