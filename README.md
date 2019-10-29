@@ -11,6 +11,20 @@ mall商城购物系统学习
 运行后访问
 Api文档:  http://localhost:8081/swagger-ui.html
 端口是配置在application.yml
+
+
+##  引用技术
+
+技术 | 说明 | 官网
+----|----|----
+Spring Boot | 容器+MVC框架 | [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot)
+MyBatis | ORM框架  | [http://www.mybatis.org/mybatis-3/zh/index.html](http://www.mybatis.org/mybatis-3/zh/index.html)
+MyBatisGenerator | 数据层代码生成 | [http://www.mybatis.org/generator/index.html](http://www.mybatis.org/generator/index.html)
+PageHelper | MyBatis物理分页插件 | [http://git.oschina.net/free/Mybatis_PageHelper](http://git.oschina.net/free/Mybatis_PageHelper)
+Swagger-UI | 文档生产工具 | [https://github.com/swagger-api/swagger-ui](https://github.com/swagger-api/swagger-ui)
+Redis | 分布式缓存 | [https://redis.io/](https://redis.io/)
+JWT | JWT登录支持 | [https://github.com/jwtk/jjwt](https://github.com/jwtk/jjwt)
+Lombok | 简化对象封装工具 | [https://github.com/rzwitserloot/lombok](https://github.com/rzwitserloot/lombok)
 ## 功能设计
 
 ## 一 商品管理
@@ -61,9 +75,6 @@ Api文档:  http://localhost:8081/swagger-ui.html
 - 退货原因分页查询 完成
 
 
-
-
-
 ## 三 营销管理
 
 
@@ -72,23 +83,6 @@ Api文档:  http://localhost:8081/swagger-ui.html
 -  用户鉴权 完成
 
 
-##  引用技术
-- springboot
-- redis
-- swagger2
-- mybatis逆向工程
-- SpringSecurity 用户权限认证与登录
-
-技术 | 说明 | 官网
-----|----|----
-Spring Boot | 容器+MVC框架 | [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot)
-MyBatis | ORM框架  | [http://www.mybatis.org/mybatis-3/zh/index.html](http://www.mybatis.org/mybatis-3/zh/index.html)
-MyBatisGenerator | 数据层代码生成 | [http://www.mybatis.org/generator/index.html](http://www.mybatis.org/generator/index.html)
-PageHelper | MyBatis物理分页插件 | [http://git.oschina.net/free/Mybatis_PageHelper](http://git.oschina.net/free/Mybatis_PageHelper)
-Swagger-UI | 文档生产工具 | [https://github.com/swagger-api/swagger-ui](https://github.com/swagger-api/swagger-ui)
-Redis | 分布式缓存 | [https://redis.io/](https://redis.io/)
-JWT | JWT登录支持 | [https://github.com/jwtk/jjwt](https://github.com/jwtk/jjwt)
-Lombok | 简化对象封装工具 | [https://github.com/rzwitserloot/lombok](https://github.com/rzwitserloot/lombok)
 ## 待完成
 @Validated 与 与@Empty之类校验没加    
 权限控制没加
