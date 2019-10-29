@@ -7,7 +7,7 @@ import com.macro.mymall.admin.request.PmsProductCategoryParam;
 import java.util.List;
 
 /**
- * @author tangwei
+ * @author clay
  * @date 2019/10/27 22:40
  */
 public interface PmsProductCategoryService {

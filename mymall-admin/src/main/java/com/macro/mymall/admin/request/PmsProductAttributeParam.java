@@ -5,7 +5,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
- * @author tangwei
+ * @author clay
  * @date 2019/10/23 14:35
  */
 @Data

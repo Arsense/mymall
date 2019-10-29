@@ -5,7 +5,7 @@ import com.macro.domain.model.ums.UmsMemberLevel;
 import java.util.List;
 
 /**
- * @author tangwei
+ * @author clay
  * @date 2019/10/25 10:30
  */
 public interface UmsMemberLevelService {

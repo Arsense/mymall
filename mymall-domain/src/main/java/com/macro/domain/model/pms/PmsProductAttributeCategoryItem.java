@@ -3,7 +3,7 @@ package com.macro.domain.model.pms;
 import java.util.List;
 
 /**
- * @author tangwei
+ * @author clay
  * @date 2019/10/28 0:50
  */
 public class PmsProductAttributeCategoryItem extends PmsProductAttributeCategory {

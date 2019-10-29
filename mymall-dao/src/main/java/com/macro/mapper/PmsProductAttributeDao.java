@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * @author tangwei
+ * @author clay
  * @date 2019/10/27 23:51
  */
 public interface PmsProductAttributeDao {

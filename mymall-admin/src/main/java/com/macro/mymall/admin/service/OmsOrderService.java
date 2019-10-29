@@ -7,7 +7,7 @@ import java.util.List;
 /**
  *
  * 订单服务
- * @author tangwei
+ * @author clay
  * @date 2019/10/29 18:30
  */
 public interface OmsOrderService {

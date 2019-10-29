@@ -3,7 +3,7 @@ package com.macro.domain.model.pms;
 import lombok.Data;
 
 /**
- * @author tangwei
+ * @author clay
  * @date 2019/10/29 11:02
  */
 @Data

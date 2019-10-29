@@ -15,7 +15,7 @@ import java.util.List;
 /**
  *
  * 商品专题Controller
- * @author tangwei
+ * @author clay
  * @date 2019/10/25 10:38
  */
 @Controller

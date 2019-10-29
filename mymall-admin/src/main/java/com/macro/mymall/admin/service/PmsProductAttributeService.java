@@ -6,7 +6,7 @@ import com.macro.mymall.admin.request.PmsProductAttributeParam;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List; /**
- * @author tangwei
+ * @author clay
  * @date 2019/10/23 14:26
  */
 public interface PmsProductAttributeService {

@@ -3,7 +3,7 @@ package com.macro.domain.model.pms;
 /**
  *
  * 商品分类对应属性信息
- * @author tangwei
+ * @author clay
  * @date 2019/10/27 23:44
  */
 public class ProductAttrInfo {

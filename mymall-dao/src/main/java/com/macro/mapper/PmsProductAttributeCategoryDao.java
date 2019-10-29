@@ -5,7 +5,7 @@ import com.macro.domain.model.pms.PmsProductAttributeCategoryItem;
 import java.util.List;
 
 /**
- * @author tangwei
+ * @author clay
  * @date 2019/10/28 0:53
  */
 public interface PmsProductAttributeCategoryDao {

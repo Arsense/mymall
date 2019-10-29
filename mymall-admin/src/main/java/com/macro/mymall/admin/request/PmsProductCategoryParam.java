@@ -10,7 +10,7 @@ import java.util.List;
 /**
  *
  * 添加更新产品分类的参数
- * @author tangwei
+ * @author clay
  * @date 2019/10/29 10:33
  */
 @Data

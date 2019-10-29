@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 /**
- * @author tangwei
+ * @author clay
  * @date 2019/10/29 18:29
  */
 @Controller
@@ -34,7 +34,9 @@ public class OmsOrderController {
     @ResponseBody
     public CommonResult<CommonPage<OmsOrder>> listOrder(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                                         @RequestParam(value = "pageSize", defaultValue = "3") Integer pageSize) {
+
         List<OmsOrder> orderList = orderService.list(pageNum, pageSize);
+
         return CommonResult.success(CommonPage.restPage(orderList));
     }
 
