@@ -92,8 +92,7 @@ Lombok | 简化对象封装工具 | [https://github.com/rzwitserloot/lombok](htt
 - 日志打印追踪一般般
 
 ## 项目进度 
-
-总体进度：26.2%   21007/8w
+总体进度：26.2%   27007/8w
 
 
 ## 参考

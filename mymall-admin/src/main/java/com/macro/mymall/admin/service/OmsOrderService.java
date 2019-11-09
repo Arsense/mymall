@@ -1,6 +1,7 @@
 package com.macro.mymall.admin.service;
 
 import com.macro.domain.model.oms.OmsOrder;
+import com.macro.domain.model.oms.OmsOrderDetail;
 
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface OmsOrderService {
      * @return
      */
     List<OmsOrder> list(Integer pageNum, Integer pageSize);
+
+    OmsOrderDetail detail(Long id);
 }

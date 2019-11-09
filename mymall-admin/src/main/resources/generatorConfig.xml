@@ -35,12 +35,26 @@
         <!--指定生成mapper接口的的路径-->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.macro.mapper"
                              targetProject="${mdg.mapper.path}"/>
-
         <!--生成全部表tableName设为%-->
-        <table tableName="oms_order_return_apply">
+        <table tableName="sms_flash_promotion">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="oms_order_return_reason">
+        <table tableName="sms_coupon">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sms_home_brand">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sms_home_new_product">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sms_home_recommend_product">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sms_home_recommend_subject">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sms_home_advertise">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

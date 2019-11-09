@@ -9,10 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,5 +34,42 @@ public class OmsOrderReturnRessonController {
         List<OmsOrderReturnReason> returnReasonList = returnRessonService.list(pageSize, pageNum);
         return CommonResult.success(CommonPage.restPage(returnReasonList));
     }
+
+
+
+    @ApiOperation("添加退货原因")
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult create(@RequestBody OmsOrderReturnReason returnReason) {
+//        int count = returnRessonService.create(returnReason);
+//        if (count > 0) {
+//            return CommonResult.success(count);
+//        }
+        return CommonResult.fail();
+    }
+
+    @ApiOperation("批量删除退货原因")
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult delete(@RequestParam("ids") List<Long> ids) {
+//        int count = returnRessonService.delete(ids);
+//        if (count > 0) {
+//            return CommonResult.success(count);
+//        }
+        return CommonResult.fail();
+    }
+
+    @ApiOperation("修改退货原因")
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult update(@PathVariable Long id, @RequestBody OmsOrderReturnReason returnReason) {
+
+
+        return CommonResult.fail();
+    }
+
+
+
+
 
 }
