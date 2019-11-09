@@ -3,8 +3,12 @@ package com.macro.mapper;
 import com.macro.domain.model.sms.SmsHomeAdvertise;
 import com.macro.domain.model.sms.SmsHomeAdvertiseExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+
+@Mapper
 public interface SmsHomeAdvertiseMapper {
     int countByExample(SmsHomeAdvertiseExample example);
 

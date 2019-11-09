@@ -1,4 +1,4 @@
-package com.macro.mymall.admin.service.impl;
+package com.macro.mymall.admin.service.impl.pms;
 
 import com.github.pagehelper.PageHelper;
 import com.macro.domain.model.pms.PmsProductAttributeCategory;

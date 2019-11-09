@@ -1,4 +1,4 @@
-package com.macro.mymall.admin.service.impl;
+package com.macro.mymall.admin.service.impl.ums;
 
 import com.macro.domain.model.ums.UmsMemberLevel;
 import com.macro.domain.model.ums.UmsMemberLevelExample;

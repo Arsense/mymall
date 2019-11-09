@@ -1,4 +1,4 @@
-package com.macro.mymall.admin.service.impl;
+package com.macro.mymall.admin.service.impl.oms;
 
 import com.macro.domain.model.oms.OmsOrderSetting;
 import com.macro.mapper.OmsOrderSettingMapper;
