@@ -4,7 +4,7 @@ import com.macro.mymall.shop.service.UmsMemberService;
 import org.springframework.stereotype.Service;
 
 /**
- * @author tangwei
+ * @author clay
  * @date 2019/11/17 22:20
  */
 @Service

@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 /**
  * 秒杀信息和商品对象封装
- * @author tangwei
+ * @author clay
  * @date 2019/11/17 21:39
  */
 @Getter
