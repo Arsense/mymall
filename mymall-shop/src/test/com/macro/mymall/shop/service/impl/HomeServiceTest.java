@@ -1,12 +1,12 @@
 package com.macro.mymall.shop.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.macro.mymall.shop.BaseTest;
 import com.macro.mymall.shop.domain.HomeContentResult;
 import com.macro.mymall.shop.service.HomeService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import static org.junit.Assert.*;
+import org.springframework.util.Assert;
 
 /**
  * @author clay
@@ -21,7 +21,8 @@ public class HomeServiceTest extends BaseTest {
     public void content() {
         HomeContentResult result = homeService.content();
 
-        System.out.println("content结果是");
+        Assert.notNull(result);
+        System.out.println("结果是=================="+ JSON.toJSON(result));
     }
 
     @Test

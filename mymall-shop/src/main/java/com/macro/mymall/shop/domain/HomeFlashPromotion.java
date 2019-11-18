@@ -1,5 +1,7 @@
 package com.macro.mymall.shop.domain;
 
+import lombok.Data;
+
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +10,7 @@ import java.util.List;
  * 首页当前秒杀场次信息
  * @date 2019/11/17 21:32
  */
+@Data
 public class HomeFlashPromotion {
     private Date startTime;
     private Date endTime;
