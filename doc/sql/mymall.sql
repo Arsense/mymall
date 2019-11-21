@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2019-10-29 21:34:50
+Date: 2019-11-21 21:46:45
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,6 +31,68 @@ CREATE TABLE `cms_prefrence_area` (
 
 -- ----------------------------
 -- Records of cms_prefrence_area
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for cms_subject
+-- ----------------------------
+DROP TABLE IF EXISTS `cms_subject`;
+CREATE TABLE `cms_subject` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `category_id` bigint(20) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `pic` varchar(500) DEFAULT NULL COMMENT '专题主图',
+  `product_count` int(11) DEFAULT NULL COMMENT '关联产品数量',
+  `recommend_status` int(1) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `collect_count` int(11) DEFAULT NULL,
+  `read_count` int(11) DEFAULT NULL,
+  `comment_count` int(11) DEFAULT NULL,
+  `album_pics` varchar(1000) DEFAULT NULL COMMENT '画册图片用逗号分割',
+  `description` varchar(1000) DEFAULT NULL,
+  `show_status` int(1) DEFAULT NULL COMMENT '显示状态：0->不显示；1->显示',
+  `content` text,
+  `forward_count` int(11) DEFAULT NULL COMMENT '转发数',
+  `category_name` varchar(200) DEFAULT NULL COMMENT '专题分类名称',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='专题表';
+
+-- ----------------------------
+-- Records of cms_subject
+-- ----------------------------
+INSERT INTO `cms_subject` VALUES ('2', '123', '标题', null, null, '1', '2019-11-11 13:44:30', '1', '1', '1', '1', '11', '1', '1', '1', '类目1');
+
+-- ----------------------------
+-- Table structure for oms_cart_item
+-- ----------------------------
+DROP TABLE IF EXISTS `oms_cart_item`;
+CREATE TABLE `oms_cart_item` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `product_id` bigint(20) DEFAULT NULL,
+  `product_sku_id` bigint(20) DEFAULT NULL,
+  `member_id` bigint(20) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL COMMENT '购买数量',
+  `price` decimal(10,2) DEFAULT NULL COMMENT '添加到购物车的价格',
+  `sp1` varchar(200) DEFAULT NULL COMMENT '销售属性1',
+  `sp2` varchar(200) DEFAULT NULL COMMENT '销售属性2',
+  `sp3` varchar(200) DEFAULT NULL COMMENT '销售属性3',
+  `product_pic` varchar(1000) DEFAULT NULL COMMENT '商品主图',
+  `product_name` varchar(500) DEFAULT NULL COMMENT '商品名称',
+  `product_sub_title` varchar(500) DEFAULT NULL COMMENT '商品副标题（卖点）',
+  `product_sku_code` varchar(200) DEFAULT NULL COMMENT '商品sku条码',
+  `member_nickname` varchar(500) DEFAULT NULL COMMENT '会员昵称',
+  `create_date` datetime DEFAULT NULL COMMENT '创建时间',
+  `modify_date` datetime DEFAULT NULL COMMENT '修改时间',
+  `delete_status` int(1) DEFAULT '0' COMMENT '是否删除',
+  `product_category_id` bigint(20) DEFAULT NULL COMMENT '商品分类',
+  `product_brand` varchar(200) DEFAULT NULL,
+  `product_sn` varchar(200) DEFAULT NULL,
+  `product_attr` varchar(500) DEFAULT NULL COMMENT '商品销售属性:[{"key":"颜色","value":"颜色"},{"key":"容量","value":"4G"}]',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='购物车表';
+
+-- ----------------------------
+-- Records of oms_cart_item
 -- ----------------------------
 
 -- ----------------------------
@@ -83,7 +145,7 @@ CREATE TABLE `oms_order` (
   `comment_time` datetime DEFAULT NULL COMMENT '评价时间',
   `modify_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='订单表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='订单表';
 
 -- ----------------------------
 -- Records of oms_order
@@ -123,7 +185,7 @@ CREATE TABLE `oms_order_return_apply` (
   `receive_time` datetime DEFAULT NULL COMMENT '收货时间',
   `receive_note` varchar(500) DEFAULT NULL COMMENT '收货备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='订单退货申请';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='订单退货申请';
 
 -- ----------------------------
 -- Records of oms_order_return_apply
@@ -141,7 +203,7 @@ CREATE TABLE `oms_order_return_reason` (
   `status` int(1) DEFAULT NULL COMMENT '状态：0->不启用；1->启用',
   `create_time` datetime DEFAULT NULL COMMENT '添加时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='退货原因表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='退货原因表';
 
 -- ----------------------------
 -- Records of oms_order_return_reason
@@ -254,9 +316,9 @@ CREATE TABLE `pms_product` (
 -- ----------------------------
 -- Records of pms_product
 -- ----------------------------
-INSERT INTO `pms_product` VALUES ('1', '2', '1', '1', '1', '111', '1', '11', '0', '1', '1', '0', null, null, null, null, null, '0', '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `pms_product` VALUES ('2', '1', '2', '0', null, 'dsds', '', '', '1', '0', '1', '0', '0', '0', '0', '0.00', null, '0', '1', '0', 'sdsd', '', '0.00', '0', '0', '', '0.00', '0', '', '关键字', '备注', '', '详情', '描述', '', '', null, null, '0', '0', '万和', '测试二级分类');
-INSERT INTO `pms_product` VALUES ('3', '1', '2', '0', null, '111', '', '', '0', '0', '1', '0', '0', '0', '0', '0.00', null, '0', '0', '0', '11', '', '0.00', '0', '0', '', '0.00', '0', '', '', '', '', '', '', '', '', null, null, '0', '0', '万和', '测试二级分类');
+INSERT INTO `pms_product` VALUES ('1', '2', '1', '1', '1', '111', '1', '11', '0', '1', '1', '1', null, null, null, null, null, '0', '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `pms_product` VALUES ('2', '1', '2', '0', null, 'dsds', '', '', '1', '0', '1', '1', '0', '0', '0', '0.00', null, '0', '1', '0', 'sdsd', '', '0.00', '0', '0', '', '0.00', '0', '', '关键字', '备注', '', '详情', '描述', '', '', null, null, '0', '0', '万和', '测试二级分类');
+INSERT INTO `pms_product` VALUES ('3', '1', '2', '0', null, '111', '', '', '0', '1', '1', '1', '0', '0', '0', '0.00', null, '0', '0', '0', '11', '', '0.00', '0', '0', '', '0.00', '0', '', '', '', '', '', '', '', '', null, null, '0', '0', '万和', '测试二级分类');
 
 -- ----------------------------
 -- Table structure for pms_product_attribute
@@ -346,6 +408,172 @@ CREATE TABLE `pms_product_category_attribute_relation` (
 -- ----------------------------
 -- Records of pms_product_category_attribute_relation
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for sms_coupon
+-- ----------------------------
+DROP TABLE IF EXISTS `sms_coupon`;
+CREATE TABLE `sms_coupon` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `type` int(1) DEFAULT NULL COMMENT '优惠卷类型；0->全场赠券；1->会员赠券；2->购物赠券；3->注册赠券',
+  `name` varchar(100) DEFAULT NULL,
+  `platform` int(1) DEFAULT NULL COMMENT '使用平台：0->全部；1->移动；2->PC',
+  `count` int(11) DEFAULT NULL COMMENT '数量',
+  `amount` decimal(10,2) DEFAULT NULL COMMENT '金额',
+  `per_limit` int(11) DEFAULT NULL COMMENT '每人限领张数',
+  `min_point` decimal(10,2) DEFAULT NULL COMMENT '使用门槛；0表示无门槛',
+  `start_time` datetime DEFAULT NULL,
+  `end_time` datetime DEFAULT NULL,
+  `use_type` int(1) DEFAULT NULL COMMENT '使用类型：0->全场通用；1->指定分类；2->指定商品',
+  `note` varchar(200) DEFAULT NULL COMMENT '备注',
+  `publish_count` int(11) DEFAULT NULL COMMENT '发行数量',
+  `use_count` int(11) DEFAULT NULL COMMENT '已使用数量',
+  `receive_count` int(11) DEFAULT NULL COMMENT '领取数量',
+  `enable_time` datetime DEFAULT NULL COMMENT '可以领取的日期',
+  `code` varchar(64) DEFAULT NULL COMMENT '优惠码',
+  `member_level` int(1) DEFAULT NULL COMMENT '可领取的会员类型：0->无限时',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='优惠卷表';
+
+-- ----------------------------
+-- Records of sms_coupon
+-- ----------------------------
+INSERT INTO `sms_coupon` VALUES ('22', '0', '名称', '0', null, '11.00', '1', '11.00', null, null, '0', null, '1', null, null, null, null, null);
+
+-- ----------------------------
+-- Table structure for sms_flash_promotion
+-- ----------------------------
+DROP TABLE IF EXISTS `sms_flash_promotion`;
+CREATE TABLE `sms_flash_promotion` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) DEFAULT NULL,
+  `start_date` date DEFAULT NULL COMMENT '开始日期',
+  `end_date` date DEFAULT NULL COMMENT '结束日期',
+  `status` int(1) DEFAULT NULL COMMENT '上下线状态',
+  `create_time` datetime DEFAULT NULL COMMENT '秒杀时间段名称',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='限时购表';
+
+-- ----------------------------
+-- Records of sms_flash_promotion
+-- ----------------------------
+INSERT INTO `sms_flash_promotion` VALUES ('14', '测试活动1', '2019-10-31', '2019-12-01', '0', null);
+
+-- ----------------------------
+-- Table structure for sms_flash_promotion_session
+-- ----------------------------
+DROP TABLE IF EXISTS `sms_flash_promotion_session`;
+CREATE TABLE `sms_flash_promotion_session` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `name` varchar(200) DEFAULT NULL COMMENT '场次名称',
+  `start_time` time DEFAULT NULL COMMENT '每日开始时间',
+  `end_time` time DEFAULT NULL COMMENT '每日结束时间',
+  `status` int(1) DEFAULT NULL COMMENT '启用状态：0->不启用；1->启用',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='限时购场次表';
+
+-- ----------------------------
+-- Records of sms_flash_promotion_session
+-- ----------------------------
+INSERT INTO `sms_flash_promotion_session` VALUES ('1', '测试活动Session', '12:16:48', '20:16:53', '1', '2019-11-04 12:17:01');
+
+-- ----------------------------
+-- Table structure for sms_home_advertise
+-- ----------------------------
+DROP TABLE IF EXISTS `sms_home_advertise`;
+CREATE TABLE `sms_home_advertise` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `type` int(1) DEFAULT NULL COMMENT '轮播位置：0->PC首页轮播；1->app首页轮播',
+  `pic` varchar(500) DEFAULT NULL,
+  `start_time` datetime DEFAULT NULL,
+  `end_time` datetime DEFAULT NULL,
+  `status` int(1) DEFAULT NULL COMMENT '上下线状态：0->下线；1->上线',
+  `click_count` int(11) DEFAULT NULL COMMENT '点击数',
+  `order_count` int(11) DEFAULT NULL COMMENT '下单数',
+  `url` varchar(500) DEFAULT NULL COMMENT '链接地址',
+  `note` varchar(500) DEFAULT NULL COMMENT '备注',
+  `sort` int(11) DEFAULT '0' COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='首页轮播广告表';
+
+-- ----------------------------
+-- Records of sms_home_advertise
+-- ----------------------------
+INSERT INTO `sms_home_advertise` VALUES ('12', '广告1', '1', '', '2019-11-06 16:00:00', '2019-11-09 17:23:52', '1', null, null, '1111', null, '0');
+
+-- ----------------------------
+-- Table structure for sms_home_brand
+-- ----------------------------
+DROP TABLE IF EXISTS `sms_home_brand`;
+CREATE TABLE `sms_home_brand` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `brand_id` bigint(20) DEFAULT NULL,
+  `brand_name` varchar(64) DEFAULT NULL,
+  `recommend_status` int(1) DEFAULT NULL,
+  `sort` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='首页推荐品牌表';
+
+-- ----------------------------
+-- Records of sms_home_brand
+-- ----------------------------
+INSERT INTO `sms_home_brand` VALUES ('1', '1', '三星', '1', '1');
+
+-- ----------------------------
+-- Table structure for sms_home_new_product
+-- ----------------------------
+DROP TABLE IF EXISTS `sms_home_new_product`;
+CREATE TABLE `sms_home_new_product` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `product_id` bigint(20) DEFAULT NULL,
+  `product_name` varchar(64) DEFAULT NULL,
+  `recommend_status` int(1) DEFAULT NULL,
+  `sort` int(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='新鲜好物表';
+
+-- ----------------------------
+-- Records of sms_home_new_product
+-- ----------------------------
+INSERT INTO `sms_home_new_product` VALUES ('1', '2', '商品1', '1', '1');
+
+-- ----------------------------
+-- Table structure for sms_home_recommend_product
+-- ----------------------------
+DROP TABLE IF EXISTS `sms_home_recommend_product`;
+CREATE TABLE `sms_home_recommend_product` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `product_id` bigint(20) DEFAULT NULL,
+  `product_name` varchar(64) DEFAULT NULL,
+  `recommend_status` int(1) DEFAULT NULL,
+  `sort` int(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='人气推荐商品表';
+
+-- ----------------------------
+-- Records of sms_home_recommend_product
+-- ----------------------------
+INSERT INTO `sms_home_recommend_product` VALUES ('1', '3', '人气商品1', '1', '1');
+
+-- ----------------------------
+-- Table structure for sms_home_recommend_subject
+-- ----------------------------
+DROP TABLE IF EXISTS `sms_home_recommend_subject`;
+CREATE TABLE `sms_home_recommend_subject` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `subject_id` bigint(20) DEFAULT NULL,
+  `subject_name` varchar(64) DEFAULT NULL,
+  `recommend_status` int(1) DEFAULT NULL,
+  `sort` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='首页推荐专题表';
+
+-- ----------------------------
+-- Records of sms_home_recommend_subject
+-- ----------------------------
+INSERT INTO `sms_home_recommend_subject` VALUES ('1', '2', '推荐subject', '1', '1');
 
 -- ----------------------------
 -- Table structure for ums_admin

@@ -36,7 +36,7 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.macro.mapper"
                              targetProject="${mdg.mapper.path}"/>
         <!--生成全部表tableName设为%-->
-        <table tableName="sms_flash_promotion_session">
+        <table tableName="oms_cart_item">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 

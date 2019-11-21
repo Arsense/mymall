@@ -1,17 +1,13 @@
-package com.macro.domain.model.ums;
+package com.macro.domain.model.cms;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
-/**
- * @author clay
- * @date 2019/10/25 10:39
- */
 @Data
-public class CmsSubject {
-
+public class CmsSubject implements Serializable {
     private Long id;
 
     private Long categoryId;
@@ -49,4 +45,8 @@ public class CmsSubject {
     private String categoryName;
 
     private String content;
+
+    private static final long serialVersionUID = 1L;
+
+
 }

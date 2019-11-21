@@ -1,14 +1,16 @@
 package com.macro.mymall.shop.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.macro.domain.model.cms.CmsSubject;
+import com.macro.domain.model.cms.CmsSubjectExample;
 import com.macro.domain.model.SmsFlashPromotionSession;
 import com.macro.domain.model.SmsFlashPromotionSessionExample;
 import com.macro.domain.model.pms.PmsProductCategory;
+import com.macro.domain.model.pms.PmsProductCategoryExample;
 import com.macro.domain.model.sms.*;
-import com.macro.domain.model.ums.CmsSubject;
 import com.macro.domain.model.ums.PmsProduct;
-import com.macro.mapper.SmsFlashPromotionMapper;
-import com.macro.mapper.SmsFlashPromotionSessionMapper;
-import com.macro.mapper.SmsHomeAdvertiseMapper;
+import com.macro.domain.model.ums.PmsProductExample;
+import com.macro.mapper.*;
 import com.macro.mymall.shop.dao.HomeDao;
 import com.macro.mymall.shop.domain.FlashPromotionProduct;
 import com.macro.mymall.shop.domain.HomeContentResult;
@@ -28,6 +30,7 @@ import java.util.List;
  *
  * 首页内容管理Service实现类
  * @date 2019/11/17 20:15
+ * @author clay
  */
 @Service
 public class HomeServiceImpl implements HomeService {
@@ -45,11 +48,19 @@ public class HomeServiceImpl implements HomeService {
     @Autowired
     private SmsFlashPromotionSessionMapper promotionSessionMapper;
 
+    @Autowired
+    private CmsSubjectMapper subjectMapper;
+
+    @Autowired
+    private PmsProductMapper productMapper;
+
+    @Autowired
+    private PmsProductCategoryMapper productCategoryMapper;
+
+
     @Override
     public HomeContentResult content() {
-
         HomeContentResult result = new HomeContentResult();
-
         //获取首页广告
         try {
             result.setAdvertiseList(getHomeAdvertiseList());
@@ -66,23 +77,42 @@ public class HomeServiceImpl implements HomeService {
         } catch (Exception e) {
             LOGGER.info("method:content, 调用异常", e);
         }
+
         return result;
 
     }
 
     @Override
     public List<PmsProduct> recommendProductList(Integer pageSize, Integer pageNum) {
-        return null;
+        PageHelper.startPage(pageNum, pageSize);
+        // TODO: 2019/1/29 暂时默认推荐所有商品
+        PmsProductExample example = new PmsProductExample();
+        example.createCriteria()
+                .andDeleteStatusEqualTo(0)
+                .andPublishStatusEqualTo(1);
+        return productMapper.selectByExample(example);
     }
 
     @Override
     public List<PmsProductCategory> getProductCateList(Long parentId) {
-        return null;
+        PmsProductCategoryExample example = new PmsProductCategoryExample();
+        example.createCriteria()
+                .andShowStatusEqualTo(1)
+                .andParentIdEqualTo(parentId);
+        example.setOrderByClause("sort desc");
+        return productCategoryMapper.selectByExample(example);
     }
 
     @Override
     public List<CmsSubject> getSubjectList(Long cateId, Integer pageSize, Integer pageNum) {
-        return null;
+        PageHelper.startPage(pageNum, pageSize);
+        CmsSubjectExample example = new CmsSubjectExample();
+        CmsSubjectExample.Criteria criteria = example.createCriteria();
+        criteria.andShowStatusEqualTo(1);
+        if (cateId != null) {
+            criteria.andCategoryIdEqualTo(cateId);
+        }
+        return subjectMapper.selectByExample(example);
     }
 
     private List<SmsHomeAdvertise> getHomeAdvertiseList() {

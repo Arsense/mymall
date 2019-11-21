@@ -1,7 +1,7 @@
 package com.macro.mymall.shop.service;
 
+import com.macro.domain.model.cms.CmsSubject;
 import com.macro.domain.model.pms.PmsProductCategory;
-import com.macro.domain.model.ums.CmsSubject;
 import com.macro.domain.model.ums.PmsProduct;
 import com.macro.mymall.shop.domain.HomeContentResult;
 
@@ -35,7 +35,6 @@ public interface HomeService {
      * @param cateId 专题分类id
      */
     List<CmsSubject> getSubjectList(Long cateId, Integer pageSize, Integer pageNum);
-
 
 
 }

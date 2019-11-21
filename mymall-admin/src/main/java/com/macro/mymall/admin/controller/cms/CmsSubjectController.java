@@ -1,6 +1,6 @@
 package com.macro.mymall.admin.controller.cms;
 
-import com.macro.domain.model.ums.CmsSubject;
+import com.macro.domain.model.cms.CmsSubject;
 import com.macro.mymall.admin.common.CommonResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

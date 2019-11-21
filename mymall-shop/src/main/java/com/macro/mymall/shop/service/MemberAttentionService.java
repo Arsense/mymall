@@ -13,7 +13,7 @@ public interface MemberAttentionService {
     /**
      * 添加关注
      */
-    int addAttention(MemberBrandAttention memberBrandAttention);
+    int createAttention(MemberBrandAttention memberBrandAttention);
 
     /**
      * 取消关注
